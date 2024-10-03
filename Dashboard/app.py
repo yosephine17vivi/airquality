@@ -15,8 +15,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
+url = 'https://github.com/yosephine17vivi/airquality/blob/main/Dashboard/Data%20Air%20Quality.csv'
 # Load the dataset
-df = pd.read_csv('Data Air Quality.csv')
+df = pd.read_csv(url)
 
 # Convert the 'date' column to datetime type
 df['date'] = pd.to_datetime(df['date'])
