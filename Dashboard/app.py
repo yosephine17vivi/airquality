@@ -17,8 +17,6 @@ import numpy as np
 
 df = pd.read_csv('Data Air Quality.csv')
 
-pip install streamlit babel
-
 # Mengonversi kolom 'date' menjadi tipe datetime
 df['date'] = pd.to_datetime(df['date'])
 
