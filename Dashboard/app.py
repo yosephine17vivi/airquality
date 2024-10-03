@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the dataset
-df = pd.read_csv('Data Air Quality.csv')
+df = pd.read_csv('Dashboard/Data Air Quality.csv')
 
 # Convert the 'date' column to datetime type
 df['date'] = pd.to_datetime(df['date'])
