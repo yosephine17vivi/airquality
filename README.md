@@ -2,7 +2,6 @@
 This project involves analyzing and visualizin air quality data. It includes scripts for data preparation, exploration, and a Streamlit dashboard for interactive analysis. The goal is to gain insights from the Air Quality Dataset
 
 ## Installation
-## Installation
 1. Clone this repository to your local machine.
 ```
 git clone https://github.com/yosephine17vivi/airquality.git
@@ -10,7 +9,7 @@ git clone https://github.com/yosephine17vivi/airquality.git
 
 2. Navigate to the project directory.
 ```
-cd air-quality
+cd airquality
 ```
    
 3. Install the necessary Python packages by executing the following command:
