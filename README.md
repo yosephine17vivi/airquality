@@ -16,7 +16,7 @@ cd airquality
 ```
 pip install -r requirements.txt
 ```
-#### Run steamlit app
+## Run steamlit app
 ```
 streamlit run app.py
 ```
