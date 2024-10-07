@@ -7,7 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1mnO8aBarrviwVS2FiPP2dK-cQ8ccK0Wk
 """
 
-
 import streamlit as st
 import datetime
 import pandas as pd
@@ -17,14 +16,12 @@ import numpy as np
 
 df = pd.read_csv('Dashboard/Data Air Quality.csv')
 
-
-
 # Mengonversi kolom 'date' menjadi tipe datetime
 df['date'] = pd.to_datetime(df['date'])
 
 # Mendapatkan tanggal minimum dan maksimum dari kolom 'date'
-min_date = df['date'].min()
-max_date = df['date'].max()
+min_date = df['date'].min().date()
+max_date = df['date'].max().date()
 
 # Judul halaman
 st.title('Dashboard Analisis Data Air Quality')
@@ -34,15 +31,22 @@ with st.sidebar:
     st.sidebar.write('**Nama:** Yosephine Paulina Sianipar')
     st.sidebar.write('**Email:** yosephsianipar17@gmail.com')
     st.sidebar.write('**ML-51**')
-    start_date, end_date = st.date_input(
-        label='Pilih Rentang Waktu',
-        min_value=min_date,
-        max_value=max_date,
-        value=[min_date, max_date]
-    )
+    
+    try:
+        start_date, end_date = st.date_input(
+            label='Pilih Rentang Waktu',
+            min_value=min_date,
+            max_value=max_date,
+            value=[min_date, max_date]
+        )
+    except ValueError:
+        start_date = min_date
+        end_date = max_date
+        st.warning("Pilih rentang tanggal untuk melanjutkan.")
 
-df_grouping = df[(df["date"] >= str(start_date)) &
-                (df["date"] <= str(end_date))]
+# Lanjutkan dengan kode Anda yang sudah ada
+df_grouping = df[(df["date"].dt.date >= start_date) &
+                 (df["date"].dt.date <= end_date)]
 
 df_Aotizhongxin_Changping_Dingling_Dongsi = df_grouping[(df_grouping['station'] == 'Aotizhongxin') | (df_grouping['station'] == 'Changping') | (df_grouping['station'] == 'Dingling') | (df_grouping['station'] == 'Dongsi')]
 df_Guanyuan_Gucheng_Huairou_Nongzhanguan = df_grouping[(df_grouping['station'] == 'Guanyuan') | (df_grouping['station'] == 'Gucheng') | (df_grouping['station'] == 'Huairou') | (df_grouping['station'] == 'Nongzhanguan')]
