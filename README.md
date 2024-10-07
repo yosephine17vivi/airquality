@@ -16,6 +16,10 @@ cd airquality
 ```
 pip install -r requirements.txt
 ```
+#### Run steamlit app
+```
+streamlit run app.py
+```
 
 ## Data Sources 
 - https://drive.google.com/file/d/1RhU3gJlkteaAQfyn9XOVAz7a5o1-etgr/view?usp=share_link from dicoding
